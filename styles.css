@@ -142,62 +142,44 @@ body {
 }
 
 .info-box {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
     background: rgba(20,20,20,0.6);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    padding: 3rem;
     border: 1px solid rgba(229,9,20,0.2);
+    padding: 3rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 1s ease 0.3s forwards;
 }
 
-.info-item {
-    text-align: center;
-    padding: 2rem;
-    background: rgba(229,9,20,0.05);
-    border-radius: 15px;
-    transition: var(--transition);
-}
-
-.info-item:hover {
-    background: rgba(229,9,20,0.1);
-    transform: translateY(-5px);
-}
-
-.info-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    opacity: 0.8;
-}
-
-.info-item h3 {
-    color: var(--red);
-    margin-bottom: 0.5rem;
+.info-box.single ul {
+    list-style: disc;
+    padding-left: 1.5rem;
 }
 
 .project-card {
     background: linear-gradient(145deg, #111, #1a1a1a);
     border-radius: 20px;
-    padding: 3rem;
+    padding: 2rem;
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     border: 1px solid rgba(229,9,20,0.2);
+}
+
+.project-card.small {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .project-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
     align-items: center;
 }
 
 .project-image {
     width: 100%;
-    height: 500px;
+    height: 350px;
     border-radius: 15px;
     object-fit: cover;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
@@ -209,41 +191,17 @@ body {
 }
 
 .project-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-.netflix-badge {
-    background: var(--red);
+.project-title {
+    font-size: 2.2rem;
     color: white;
-    padding: 0.3rem 1rem;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: 600;
 }
 
-.project-specs {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.spec {
-    padding: 1.5rem;
-    border-radius: 10px;
-    background: rgba(229,9,20,0.1);
-    border: 1px solid var(--red);
-    text-align: center;
-    min-width: 120px;
-}
-
-.spec-value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--red);
-    line-height: 1;
+.project-points {
+    list-style: disc;
+    padding-left: 1.5rem;
 }
 
 @keyframes textReveal {
@@ -264,23 +222,23 @@ body {
     .nav-container {
         padding: 1rem;
     }
-    
+
     .logo-text {
         font-size: 20px;
     }
-    
+
     .hero-title {
         font-size: 2.8rem;
     }
-    
+
     .project-main {
         grid-template-columns: 1fr;
     }
-    
+
     .project-image {
-        height: 300px;
+        height: 250px;
     }
-    
+
     .info-box {
         padding: 2rem;
     }
