@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SigmaDrone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="#hjem" class="logo">
+                <span class="logo-icon">Σ</span>
+                <span class="logo-text">SigmaDrone</span>
+            </a>
+            <div class="nav-links">
+                <a href="#hjem" class="nav-link active">Hjem</a>
+                <a href="#om-oss" class="nav-link">Om Oss</a>
+                <a href="#prosjekter" class="nav-link">Prosjekter</a>
+            </div>
+        </div>
+    </nav>
 
+    <section id="hjem" class="page active">
+        <div class="hero">
+            <h1 class="hero-title">Luftfotografering</h1>
+            <p class="hero-subtitle">Profesjonelle drone løsninger for Netflix produksjoner</p>
+        </div>
+    </section>
+
+    <section id="om-oss" class="page">
+        <div class="content">
+            <h2 class="section-title">Om Oss</h2>
+            <div class="about-content">
+                <p class="about-text">Vi spesialiserer oss på avansert dronefotografering for underholdningsindustrien. Vårt team av sertifiserte operatører leverer unike luftbilder for store produksjoner.</p>
+                <div class="warning">Advarsel: Dette er et fiktivt selskap. Vi samarbeider ikke med Netflix.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prosjekter" class="page">
+        <div class="content">
+            <h2 class="section-title">Våre Prosjekter</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('images/prosjekt1.jpg')"></div>
+                    <h3 class="project-title">Action-scener</h3>
+                    <p class="project-desc">Høyhastighetsfilming med spesialdroner</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('images/prosjekt2.jpg')"></div>
+                    <h3 class="project-title">Naturdokumentar</h3>
+                    <p class="project-desc">Stille droneopptak i 8K oppløsning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+                document.querySelectorAll('.nav-link').forEach(lnk => lnk.classList.remove('active'));
+                target.classList.add('active');
+                link.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                history.pushState(null, null, link.getAttribute('href'));
+            });
+        });
+
+        window.addEventListener('popstate', () => {
+            const currentHash = window.location.hash || '#hjem';
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelector(currentHash).classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(link => 
+                link.classList.toggle('active', link.getAttribute('href') === currentHash)
+            );
+        });
+    </script>
+</body>
+</html>
